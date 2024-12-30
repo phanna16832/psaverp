@@ -23,13 +23,13 @@ thead th {
   color: white;
   padding: 12px;
   font-weight: 500;
-  border: 1px solid #ddd;
+  border: 1px solid  rgb(255, 215, 0);
 }
 
 /* Cell Styles */
 td {
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(255, 215, 0);
 }
 
 /* Input Styles */
@@ -64,16 +64,20 @@ button {
 
 #btn1 {
   background-color: #4a90e2;
-  color: white;
+  color: rgb(255, 215, 0);
 }
 
 #btn2 {
   background-color: #28a745;
-  color: white;
+  color: rgb(255, 215, 0);
 }
 
-button:hover {
+#btn1:hover,
+#btn2:hover,
+#btn3:hover {
   opacity: 0.9;
+  background-color: rgb(161, 127, 26);
+  color: white;
 }
 
 /* Footer Styles */
@@ -84,4 +88,8 @@ tfoot td {
 
 #changePriceText{
   font-weight: bold;
+}
+
+#convertPriceText{
+  color: rgb(255, 215, 0)
 }
