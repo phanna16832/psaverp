@@ -1,0 +1,87 @@
+/* Table Container Styles */
+table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Caption Styles */
+caption {
+  padding: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* Header Styles */
+thead th {
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px;
+  font-weight: 500;
+  border: 1px solid #ddd;
+}
+
+/* Cell Styles */
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+/* Input Styles */
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  width:100px;
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type="number"]::placeholder{
+  color:gold;
+ table-layout: fixed;
+}
+
+input[type="number"]:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+/* Button Styles */
+button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+#btn1 {
+  background-color: #4a90e2;
+  color: white;
+}
+
+#btn2 {
+  background-color: #28a745;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Footer Styles */
+tfoot td {
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+#changePriceText{
+  font-weight: bold;
+}
