@@ -123,9 +123,30 @@ btn3.addEventListener("click", () => {
 });
 
 
-const Erate = document.getElementById("Erate").value;
-const Erinputate = document.getElementById("input").value;
-const btn = document.getElementById("btn").value;
+const btn = document.getElementById("btn");
+const result0 = document.createElement("span");
+const result = document.querySelector("#result");
+result.parentNode.insertBefore(result0, result);
+result0.className = "result0";
 
-btn.addEventListener()
+btn.addEventListener('click',()=>{
+  const Erate =parseFloat( document.getElementById("Erate").value);
+  const input = parseFloat(document.getElementById("input").value||0);
+  const  price = (input/Erate).toFixed(2);
+  result0.innerText = `${input}  ចែកនឹង ${Erate} = ${price}`
+  result.innerText = `សួស្តីបង សរុបហាងទំនិញទាំងអស់ $${price} \n	\n\n***បញ្ជាក់: ចំពោះទំនិញទិញក្នុងហាងតែមួយ ប្រសិនខាងហាងបំបែកកញ្ចប់ទំនិញ ខាងប្អូននឹងរាប់កញ្ចប់ទំនិញគិតថ្លៃដឹកតាមចំនួនកញ្ចប់ទំនិញដូចគ្នា
+   \សំរាប់កញ្ចប់ដែលក្រោម1គីឡូ ខាងប្អូនគិតមួយគីឡូ លើស1គីឡូយក ទំហំនិង ទម្ងង់ប្រៀបធៀបគ្នាមួយណាធំជាងយកមួយនឹងជាគោលគិតថ្លៃដឹកជញ្ចូន។​​ ម្យ៉ាងវិញទៀតខាងប្អូនធានាទៅលើតែឥវ៉ាន់ដែលបាត់បង់ \
+   មិនធានាទៅលើឥវ៉ាន់ដែលបែកបាក់នោះទេ\
+  \n ចំពោះសេវាជួយទិញតាមតេលេក្រាមពុំមានការបង្រួមកញ្ចប់ទំនិញចូលគ្នាទេបង។
+`
+})
+
+
+//copyText
+function copyText(id) {
+  const text = document.getElementById(id);
+  navigator.clipboard.writeText(text.textContent)
+    .then(() => console.log('Text copied'))
+    .catch(err => console.error('Failed to copy:', err));
+ }
 

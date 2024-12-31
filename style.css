@@ -93,3 +93,27 @@ tfoot td {
 #convertPriceText{
   color: rgb(255, 215, 0)
 }
+
+.ratecal{
+  border: 1px solid rgb(255, 215, 0);
+  width: 400px;
+}
+
+
+.ratecal button{
+  margin: 2rem;
+  color:rgb(255, 215, 0);
+  font-weight: bolder;
+  background-color: red;
+  border-radius: 10px 5px;
+}
+.result0{
+  line-break: 2px;
+  color:rgb(255, 215, 0);
+}
+
+#result{
+margin-left: 40px;
+  color: lime;
+  font-weight: bold;
+}

@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <link rel="shortcut icon" href="calculator.png" type="image/x-icon">
   </head>
   <body>
     <table>
@@ -67,18 +68,19 @@
       </tfoot>
     </table>
     <div class="ratecal">
-      <input type="number" id="input"><br><br>
-      <select name="" id="Erate">
+      <input type="number" id="input" placeholder="Enter a number"><br><br>
+      <select id="Erate">
         <option value="6" selected>6</option>
-        <option value="6.1">6.16.26.3</option>
-        <option value="6.26.3">6.26.3</option>
+        <option value="6.1">6.1</option>
+        <option value="6.2">6.2</option>
         <option value="6.3">6.3</option>
         <option value="6.4">6.4</option>
-        <option value="6.5">6.5</option5
+        <option value="6.5">6.5</option>
       </select>
-      <span id="result"></span>
-      <button id="bn">cal</button>
+      <span id="result"></span><br><br>
+      <button id="btn">គណនា</button>
+      <button onclick="copyText('result')">ចម្លង</button>
     </div>
-    <script src="script.js"></script>
+        <script src="script.js"></script>
   </body>
 </html>
