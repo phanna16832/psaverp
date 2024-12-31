@@ -123,3 +123,9 @@ btn3.addEventListener("click", () => {
 });
 
 
+const Erate = document.getElementById("Erate").value;
+const Erinputate = document.getElementById("input").value;
+const btn = document.getElementById("btn").value;
+
+btn.addEventListener()
+
