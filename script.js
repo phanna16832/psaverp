@@ -1,3 +1,23 @@
+const greeting = document.querySelector("#greeting");
+const hour = new Date().getHours(); // This gives 0-23
+
+if (hour >= 5 && hour < 12) {
+    greeting.innerText = "Good Morning!";
+} else if (hour >= 12 && hour < 17) {
+    greeting.innerText = "Good Afternoon!";
+} else if (hour >= 17 && hour < 21) {
+    greeting.innerText = "Good Evening!";
+} else {
+    greeting.innerText = "Good Night!";
+}
+
+let time = document.createElement("span");
+time.innerText = hour;
+greeting.appendChild(time);
+
+
+//declear rate
+
 const rate = document.querySelector("#rate");
 rate.innerHTML = 6.2;
 
@@ -150,3 +170,30 @@ function copyText(id) {
     .catch(err => console.error('Failed to copy:', err));
  }
 
+
+ //date format
+ const footer = document.querySelector("footer");
+ const dateFormat = document.createElement("h5");
+ footer.appendChild(dateFormat);
+  const date = new Date().toLocaleDateString('en-US', {
+   weekday: 'short',
+   year: 'numeric', 
+   month: 'short',
+   day: 'numeric'
+ });
+ 
+ dateFormat.style.color = "rgb(255, 215, 0)";
+
+ if (date.toLowerCase().includes('jan 1, 2025')) {
+   console.log("Happy New Year");
+  dateFormat.style.color = "red";
+ }
+ else if (date.toLowerCase().includes('january 29, 2025') || 
+    date.toLowerCase().includes('january 30, 2025') || 
+    date.toLowerCase().includes('january 31, 2025')) {
+  dateFormat.style.color = "rgb(255, 215, 0)";
+  dateCelebration = document.createElement("span");
+  dateCelebration.innerText = "Happy Chinese New Year  🎆🎆";
+  dateFormat.appendChild(dateCelebration);
+} 
+ dateFormat.innerText = date;

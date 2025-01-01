@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Price Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Freehand&family=Hanuman:wght@100;300;400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <!-- bootstrap icon -->
     <link
       rel="stylesheet"
@@ -13,6 +17,7 @@
     <link rel="shortcut icon" href="calculator.png" type="image/x-icon">
   </head>
   <body>
+    <header id="greeting"></header>
     <table>
       <caption>
         គណនាតម្លៃ
@@ -29,13 +34,13 @@
       <tbody id="tbody">
         <tr>
           <td>
-            <input type="number" id="inputPrice1" placeholder="Enter price" />
+            <input type="number" id="inputPrice1" placeholder="កំណត់តម្លៃ" />
           </td>
           <td>
             <input
               type="number"
               id="inputPrice2"
-              placeholder="Enter price in app"
+              placeholder="បញ្ចូលតម្លៃទំនិញនៅក្នុងអេប"
             />
           </td>
           <td><span id="rate"></span></td>
@@ -68,7 +73,7 @@
       </tfoot>
     </table>
     <div class="ratecal">
-      <input type="number" id="input" placeholder="Enter a number"><br><br>
+      <input type="number" id="input" placeholder="កំណត់ តម្លៃ"><br><br>
       <select id="Erate">
         <option value="6" selected>6</option>
         <option value="6.1">6.1</option>
@@ -81,6 +86,9 @@
       <button id="btn">គណនា</button>
       <button onclick="copyText('result')">ចម្លង</button>
     </div>
+    <footer>
+      <h4>website នេះបានបង្កើតឡើងក្នុងគោលបំណងហ្វឹកហាត់ការសរសេរកូដតែប៉ុណ្ណោះ</h4>
+    </footer>
         <script src="script.js"></script>
   </body>
 </html>

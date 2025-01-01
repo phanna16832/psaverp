@@ -1,3 +1,8 @@
+*, button, div {
+  font-family: 'Hanuman';
+}
+
+
 /* Table Container Styles */
 table {
   width: 100%;
@@ -44,7 +49,7 @@ input[type="number"] {
 
 input[type="number"]::placeholder{
   color:gold;
- table-layout: fixed;
+ word-wrap: break-word;
 }
 
 input[type="number"]:focus {
@@ -116,4 +121,9 @@ tfoot td {
 margin-left: 40px;
   color: lime;
   font-weight: bold;
+}
+
+
+footer {
+  background-color: grey;
 }
