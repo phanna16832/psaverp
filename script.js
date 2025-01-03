@@ -210,16 +210,17 @@ function copyText(id) {
           if (!copySuccessText) {
               copySuccessText = document.createElement("span");
               copySuccessText.id = "copy-success";
-              copySuccessText.style.marginLeft = "10px"; // Adjust spacing
-              copySuccessText.style.border = "1px solid  rgb(255, 215, 0)"; // yellow border
-              copySuccessText.style.backgroundColor = "#ff0000"    
-              copySuccessText.style.borderRadius ="10px, 3px"; // Rounded corners
-              copySuccessText.style.color = "green"; // Success message color
               const button = document.querySelector("button[onclick*='copyText']"); // Target the last button
               button.parentNode.appendChild(copySuccessText);
           }
           copySuccessText.textContent = "Text copied!";
           copySuccessText.style.visibility = "visible";
+          copySuccessText.style.marginLeft= "10px";
+          copySuccessText.style.border= "1px solid  rgb(255, 215, 0)"; 
+     /*      copySuccessText.style.backgroundColor= " #ff0000";  */  
+          copySuccessText.style.borderRadius = "10px";
+          copySuccessText.style.color= "green";
+        
 
           // Hide the message after 2 seconds
           setTimeout(() => {
