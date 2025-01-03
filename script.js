@@ -231,29 +231,49 @@ function copyText(id) {
 }
 
 
- //date format
- const footer = document.querySelector("footer");
- const dateFormat = document.createElement("h5");
- footer.appendChild(dateFormat);
-  const date = new Date().toLocaleDateString('en-US', {
-   weekday: 'short',
-   year: 'numeric', 
-   month: 'short',
-   day: 'numeric'
- });
- 
- dateFormat.style.color = "rgb(255, 215, 0)";
+// Get footer element and create an element for the date and time
+const footer = document.querySelector("footer");
+const dateFormat = document.createElement("h5");
+footer.appendChild(dateFormat);
 
- if (date.toLowerCase().includes('jan 1, 2025')) {
-   console.log("Happy New Year");
-  dateFormat.style.color = "red";
- }
- else if (date.toLowerCase().includes('january 29, 2025') || 
-    date.toLowerCase().includes('january 30, 2025') || 
-    date.toLowerCase().includes('january 31, 2025')) {
-  dateFormat.style.color = "rgb(255, 215, 0)";
-  dateCelebration = document.createElement("span");
-  dateCelebration.innerText = "Happy Chinese New Year  🎆🎆";
-  dateFormat.appendChild(dateCelebration);
-} 
- dateFormat.innerText = date;
+// Get current time in format HH:MM:SS
+const now = new Date();
+const hour = now.getHours();
+const minutes = now.getMinutes().toString().padStart(2, "0");
+const seconds = now.getSeconds().toString().padStart(2, "0");
+
+// Create and update the time span
+let time = document.querySelector("#current-time");
+if (!time) {
+  time = document.createElement("span");
+  time.id = "current-time"; // Add an ID for easy access
+  dateFormat.appendChild(document.createElement("br")); // Line break for readability
+  dateFormat.appendChild(time); // Append to the dateFormat element
+}
+time.innerText = `${hour}:${minutes}:${seconds}`;
+time.style.color = "rgb(255, 215, 0)"; // Yellow text color
+
+// Get current date in a specific format (e.g., "Wed, Jan 1, 2025")
+const date = new Date().toLocaleDateString('en-US', {
+  weekday: 'short',
+  year: 'numeric', 
+  month: 'short',
+  day: 'numeric'
+});
+
+// Set date text and initial color
+dateFormat.innerText = date + " " + time.innerText;
+dateFormat.style.color = "rgb(255, 215, 0)"; // Default color
+
+// Special handling for specific dates
+if (date.toLowerCase().includes('jan 1, 2025')) {
+  console.log("Happy New Year");
+  dateFormat.style.color = "red"; // Change color for New Year
+} else if (date.toLowerCase().includes('jan 29, 2025') ||
+           date.toLowerCase().includes('jan 30, 2025') ||
+           date.toLowerCase().includes('jan 31, 2025')) {
+  dateFormat.style.color = "rgb(255, 215, 0)"; // Yellow color for Chinese New Year
+  const dateCelebration = document.createElement("span");
+  dateCelebration.innerText = "Happy Chinese New Year 🎆🎆";
+  dateFormat.appendChild(dateCelebration); // Append the celebration message
+}
