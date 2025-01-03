@@ -11,6 +11,7 @@ table {
   border-collapse: collapse;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 /* Caption Styles */
@@ -115,6 +116,11 @@ tfoot td {
 .result0{
   line-break: 2px;
   color:rgb(255, 215, 0);
+}
+
+button{
+  background-color:#FF0000;
+  color: white;
 }
 
 #result{

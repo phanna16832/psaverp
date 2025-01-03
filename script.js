@@ -1,30 +1,55 @@
+//time & greeting function
 const greeting = document.querySelector("#greeting");
-const hour = new Date().getHours(); // This gives 0-23
+greeting.style.color = "#ff0000"; // Yellow text color
 
-if (hour >= 5 && hour < 12) {
-    greeting.innerText = "Good Morning!";
-} else if (hour >= 12 && hour < 17) {
-    greeting.innerText = "Good Afternoon!";
-} else if (hour >= 17 && hour < 21) {
-    greeting.innerText = "Good Evening!";
-} else {
-    greeting.innerText = "Good Night!";
+function updateGreeting() {
+    const now = new Date();
+    const hour = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, "0"); // Ensures two digits for minutes
+    const seconds = now.getSeconds().toString().padStart(2, "0"); // Ensures two digits for seconds
+
+    // Determine the greeting message
+    if (hour >= 5 && hour < 12) {
+        greeting.innerText = "អារុណសួស្តី!";
+    } else if (hour >= 12 && hour < 17) {
+        greeting.innerText = "ទិវាសួស្តី!";
+    } else if (hour >= 17 && hour < 21) {
+        greeting.innerText =" សាយណ្ណសួស្តី!";
+    } else {
+        greeting.innerText = "រាត្រីសួស្តី!";
+    }
+
+    // Create or update the time display
+    let time = document.querySelector("#current-time");
+    if (!time) {
+        time = document.createElement("span");
+        time.id = "current-time"; // Add an ID for easy access
+        greeting.appendChild(document.createElement("br")); // Line break for readability
+        greeting.appendChild(time);
+    }
+    time.innerText = `${hour}:${minutes}:${seconds}`;
+    time.style.color = "rgb(255, 215, 0)"; // Yellow text color
 }
 
-let time = document.createElement("span");
-time.innerText = hour;
-greeting.appendChild(time);
+// Update the greeting and time immediately
+updateGreeting();
+
+// Update the greeting and time every second
+setInterval(updateGreeting, 1000);
 
 
+//calculate change price
 //declear rate
-
 const rate = document.querySelector("#rate");
-rate.innerHTML = 6.2;
+rate.innerHTML = 6.1;
+rate.style.color = "#ff0000";
 
 //declear btn
-const btn1 = document.querySelector("#btn1");
-const btn2 = document.querySelector("#btn2");
+// Select all inputs and the button
+const inputs = document.querySelectorAll("input");
+const btn1 = document.getElementById("btn1");
 
+// Functionality for btn1 click
 btn1.addEventListener("click", () => {
   const inputPrice1 = parseFloat(
     document.getElementById("inputPrice1").value || 0
@@ -32,15 +57,13 @@ btn1.addEventListener("click", () => {
   const inputPrice2 = parseFloat(
     document.getElementById("inputPrice2").value || 0
   );
-  const convertPrice = (inputPrice1 / parseFloat(rate.innerHTML)).toFixed(
-    2
-  );
+  const rate = parseFloat(document.querySelector("#rate").innerText || 1); // Default rate if empty
 
+  const convertPrice = (inputPrice1 / rate).toFixed(2);
   const convertPriceText = document.querySelector("#convertPriceText");
   convertPriceText.innerText = convertPrice;
 
   const changePriceText = document.querySelector("#changePriceText");
-
   const changePrice = (convertPrice - inputPrice2).toFixed(2);
 
   changePrice > 0
@@ -48,6 +71,21 @@ btn1.addEventListener("click", () => {
     : (changePriceText.style.color = "#FF0000");
   changePriceText.innerText = changePrice;
 });
+
+// Clear inputs and results when Escape or Delete key is pressed
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" || e.key === "Delete") {
+    // Clear all input fields
+    document.getElementById("inputPrice1").value = "";
+    document.getElementById("inputPrice2").value = "";
+
+    // Clear displayed results
+    document.querySelector("#convertPriceText").innerText = "";
+    document.querySelector("#changePriceText").innerText = "";
+  }
+});
+
+
 
 //copyPaste
 btn2.addEventListener("click", () => {
@@ -142,7 +180,7 @@ btn3.addEventListener("click", () => {
   }
 });
 
-
+//subtotal calculator 
 const btn = document.getElementById("btn");
 const result0 = document.createElement("span");
 const result = document.querySelector("#result");
@@ -166,9 +204,30 @@ btn.addEventListener('click',()=>{
 function copyText(id) {
   const text = document.getElementById(id);
   navigator.clipboard.writeText(text.textContent)
-    .then(() => console.log('Text copied'))
-    .catch(err => console.error('Failed to copy:', err));
- }
+      .then(() => {
+          // Create a success message element
+          let copySuccessText = document.getElementById("copy-success");
+          if (!copySuccessText) {
+              copySuccessText = document.createElement("span");
+              copySuccessText.id = "copy-success";
+              copySuccessText.style.marginLeft = "10px"; // Adjust spacing
+              copySuccessText.style.border = "1px solid  rgb(255, 215, 0)"; // yellow border
+              copySuccessText.style.backgroundColor = "#ff0000"    
+              copySuccessText.style.borderRadius ="10px, 3px"; // Rounded corners
+              copySuccessText.style.color = "green"; // Success message color
+              const button = document.querySelector("button[onclick*='copyText']"); // Target the last button
+              button.parentNode.appendChild(copySuccessText);
+          }
+          copySuccessText.textContent = "Text copied!";
+          copySuccessText.style.visibility = "visible";
+
+          // Hide the message after 2 seconds
+          setTimeout(() => {
+              copySuccessText.style.visibility = "hidden";
+          }, 2000);
+      })
+      .catch(err => console.error('Failed to copy:', err));
+}
 
 
  //date format
