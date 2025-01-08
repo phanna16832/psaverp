@@ -1,136 +1,58 @@
-*, button, div {
-  font-family: 'Hanuman';
+/* Global Styles */
+* {
+  font-family: 'Hanuman', sans-serif;
 }
 
+body {
+  cursor: url('./assets/cursor.png'), auto;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
 
-/* Table Container Styles */
+/* Table Styles */
 table {
-  width: 100%;
-  max-width: 1200px;
+  width: 90%;
   margin: 20px auto;
   border-collapse: collapse;
   background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Caption Styles */
 caption {
-  padding: 15px;
   font-size: 1.5em;
   font-weight: bold;
-  color: #333;
-  background-color: #f8f9fa;
 }
 
-/* Header Styles */
 thead th {
   background-color: #4a90e2;
   color: white;
-  padding: 12px;
-  font-weight: 500;
-  border: 1px solid  rgb(255, 215, 0);
+  padding: 10px;
 }
 
-/* Cell Styles */
 td {
-  padding: 12px;
+  padding: 10px;
   border: 1px solid rgb(255, 215, 0);
 }
 
-/* Input Styles */
 input[type="number"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  width:100px;
+  padding: 6px;
   border-radius: 4px;
   outline: none;
 }
 
-input[type="number"]::placeholder{
-  color:gold;
- word-wrap: break-word;
-}
-
-input[type="number"]:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
-}
-
-/* Button Styles */
+/* Buttons */
 button {
-  padding: 8px 20px;
+  padding: 10px 15px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s;
 }
-
-#btn1 {
-  background-color: #4a90e2;
-  color: rgb(255, 215, 0);
-}
-
-#btn2 {
-  background-color: #28a745;
-  color: rgb(255, 215, 0);
-}
-
-#btn1:hover,
-#btn2:hover,
-#btn3:hover {
-  opacity: 0.9;
-  background-color: rgb(161, 127, 26);
-  color: white;
-}
-
-/* Footer Styles */
-tfoot td {
-  background-color: #f8f9fa;
-  text-align: center;
-}
-
-#changePriceText{
-  font-weight: bold;
-}
-
-#convertPriceText{
-  color: rgb(255, 215, 0)
-}
-
-.ratecal{
-  border: 1px solid rgb(255, 215, 0);
-  width: 400px;
-}
-
-
-.ratecal button{
-  margin: 2rem;
-  color:rgb(255, 215, 0);
-  font-weight: bolder;
-  background-color: red;
-  border-radius: 10px 5px;
-}
-.result0{
-  line-break: 2px;
-  color:rgb(255, 215, 0);
-}
-
-button{
-  background-color:#FF0000;
-  color: white;
-}
-
-#result{
-margin-left: 40px;
-  color: lime;
-  font-weight: bold;
-}
-
-
 
 footer {
-  background-color: grey;
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
 }
