@@ -3,62 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Price Calculator</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="calculator.png" type="image/x-icon">
+    <style></style>
   </head>
   <body>
-    <header id="greeting"></header>
-    <table>
-      <caption>គណនាតម្លៃ</caption>
-      <thead>
-        <tr>
-          <th>តម្លៃទំនិញនៅក្នុងអេបជា (￥)</th>
-          <th>តម្លៃទំនិញជា ($)</th>
-          <th>អាត្រាប្តូរប្រាក់</th>
-          <th>តម្លៃទំនិញក្នុងអេបជា ($)</th>
-          <th>តម្លៃទំនិញដែលត្រូវកែជា ($)</th>
-        </tr>
-      </thead>
-      <tbody id="tbody">
-        <tr>
-          <td><input type="number" id="inputPrice1" placeholder="កំណត់តម្លៃ" /></td>
-          <td><input type="number" id="inputPrice2" placeholder="បញ្ចូលតម្លៃទំនិញនៅក្នុងអេប" /></td>
-          <td><span id="rate"></span></td>
-          <td><span id="convertPriceText"></span></td>
-          <td><span id="changePriceText"></span></td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="2"><button id="btn1">គណនា</button></td>
-          <td colspan="2"><button id="btn2">ចម្លងតម្លៃទំនិញ</button></td>
-          <td><button id="btn3">ចម្លងតម្លៃដែលត្រូវកែ</button></td>
-        </tr>
-      </tfoot>
-    </table>
-    <div class="ratecal">
-      <input type="number" id="input" placeholder="កំណត់ តម្លៃ"><br><br>
-      <select id="Erate">
-        <option value="6" selected>6</option>
-        <option value="6.1">6.1</option>
-        <option value="6.2">6.2</option>
-        <option value="6.3">6.3</option>
-        <option value="6.4">6.4</option>
-        <option value="6.5">6.5</option>
-      </select>
-      <span id="result"></span><br><br>
-      <span id="compare"></span>
-      <button id="btn">គណនា</button>
-      <button onclick="copyText('result')">ចម្លង</button>
-    </div>
-    <footer>
-      <h4>Website នេះបានបង្កើតឡើងក្នុងគោលបំណងហ្វឹកហាត់ការសរសេរកូដ</h4>
-      <p>ភាសាកូដ ដែលត្រូវបានប្រើ <span style="text-decoration: underline; color:gold;">html css javascript</span></p>
-    </footer>
+    <nav>
+      <ul>
+        <li>
+          <img src="img-icon/calculator-icon.png" alt="" />
+          <a href="">Home</a>
+        </li>
+        <li><a href="">Save reply facebook</a></li>
+        <li><a href="#calcultator">Calculator</a></li>
+        <li><a href="">About-us</a></li>
+      </ul>
+    </nav>
+    <header>
+      <div class="language-div">
+        <span></span>
+        <select name="language" id="language">
+          <option value="en">English</option>
+          <option value="cn">Chinese</option>
+          <option value="km">Khmer</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="calcultator">
+      <div class="main-calculator">
+        <h3>Main calculator</h3>
+        <label for="price">Price in rmb:</label>
+        <input type="number" placeholder="rmb price" id="price" /><br />
+        <label for="rate">rate</label>
+        <select name="rate" id="rate">
+          <option value="6" selected>6</option>
+          <option value="6.1">6.1</option>
+          <option value="6.2">6.2</option>
+          <option value="6.3">6.3</option>
+          <option value="6.4">6.4</option>
+          <option value="6.45">6.45</option>
+          <option value="6.42">6.42</option>
+          <option value="6.5">6.5</option>
+          <option value="6.6">6.6</option>
+          <option value="6.7">6.7</option>
+          <option value="6.8">6.8</option>
+        </select><br>
+
+        <span id="result"></span><br />
+        <button class="calBtn" onclick="mainCal()">Calcute</button>
+        <button class="copyBtn" onclick="copyText('result')">Copy</button>
+      </div>
+      <div class="system-calculator">
+        <caption>
+          System Calculator
+        </caption>
+        <table border="1" color="red">
+          <thead>
+            <th>Price In rmb</th>
+            <th>System Price</th>
+            <th >System Default Rate</th>
+            <th>Converted Price</th>
+            <th>Corrected Price</th>
+          </thead>
+          <tbody>
+            <td>
+              <input type="number" placeholder="Please Enter Price as rmb" id="nPrice" />
+            </td>
+            <td>
+              <input type="number" placeholder="Please Enter Price in system" id="sysRate" />
+            </td>
+            <td><span id="syRate"></span></td>
+            <td><span id="syConvertPrice"></span></td>
+            <td><span id="syChangePrice"></span></td>
+          </tbody>
+          <tfoot>
+            <td colspan="2">
+              <button class="calBtn">Calculate</button>
+            </td>
+            <td>
+              <button class="copyBtn">Copy</button>
+            </td>
+            <td colspan="2">
+              <button class="deleteBtn">Delete</button>
+            </td>
+          </tfoot>
+        </table>
+      </div>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>
