@@ -1,58 +1,100 @@
-/* Global Styles */
+body,
 * {
-  font-family: 'Hanuman', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-body {
-  cursor: url('./assets/cursor.png'), auto;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
+nav {
+    padding: 4px;
 }
 
-/* Table Styles */
+nav ul {
+    background-color: blue;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.calcultator {
+    display: flex;
+    flex-direction: row;
+    /* or just remove this line, since 'row' is default */
+    gap: 10px;
+    /* optional: adds space between the two boxes */
+    padding: 20px;
+}
+
+.main-calculator,
+.system-calculator {
+    flex: 1;
+}
+
+.calBtn {
+    margin-top: 5px;
+    padding: 2px;
+    border: 1px solid #4d21de;
+    border-radius: 4px;
+    color: #4d21de;
+    background-color: #fff;
+    ;
+}
+
+.calBtn:hover {
+    margin-top: 5px;
+    padding: 2px;
+    border: 1px solid none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #4d21de;
+}
+
+.copyBtn {
+    padding: 2px;
+    border: 1px solid #34c745;
+    border-radius: 4px;
+    color: #34c745;
+    background-color: #fff;
+}
+
+.copyBtn:hover {
+    margin-top: 5px;
+    padding: 2px;
+    border: 1px solid none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #34c745;
+}
+
+.deleteBtn {
+    padding: 2px;
+    border: 1px solid #fa0720;
+    border-radius: 4px;
+    color: #fa0720;
+    background-color: #fff;
+
+}
+.deleteBtn:hover {
+    padding: 2px;
+    border: 1px solid none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #fa0720;
+}
+
 table {
-  width: 90%;
-  margin: 20px auto;
-  border-collapse: collapse;
-  background-color: white;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
 }
-
-caption {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-thead th {
-  background-color: #4a90e2;
-  color: white;
-  padding: 10px;
-}
-
-td {
-  padding: 10px;
-  border: 1px solid rgb(255, 215, 0);
-}
-
-input[type="number"] {
-  padding: 6px;
-  border-radius: 4px;
-  outline: none;
-}
-
-/* Buttons */
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: white;
+table caption{
+    text-align: center;;
 }
