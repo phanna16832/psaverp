@@ -34,11 +34,71 @@ nav ul li a {
     padding: 20px;
 }
 
+.calculator select {
+    padding: 10px;
+}
+
+.calculator select :focus-visible {
+    outline: blue;
+}
+
+
 .main-calculator,
 .system-calculator {
     flex: 1;
 }
 
+.main-calculator {
+    width: 688px;
+    height: 262px;
+    border-radius: 25px;
+background: #8D57EC;
+}
+.main-calculator h3{
+    padding-bottom:15px;
+    color: #fff;
+    text-align: center;
+}
+.main-calculator label{
+    color: #fff;
+    font-size:16px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+.main-calculator input{
+    margin-left: 35px;
+    padding: 2px;
+    border-radius: 5px;
+    width:317px;
+    height: 17px;
+    text-align: center;
+    color: #0004F6;
+    border-color: #0004F6;
+    
+}
+.main-calculator input:focus-visible{
+    outline: 1px solid #0004F6;
+}
+.main-calculator input::placeholder{
+    color: #0004F6;
+}
+
+.main-calculator select {
+    margin-top: 10px;
+    margin-left: 95px;
+    width: 100px;
+    height: 20px;
+}
+.main-calculator .calBtn{
+    margin-left: 15px;
+    width: 90px;
+    height: 35px;
+}
+.main-calculator .copyBtn{
+    margin-left: 15px;
+    width: 90px;
+   height: 35px;
+}
 .calBtn {
     margin-top: 5px;
     padding: 2px;
@@ -83,6 +143,7 @@ nav ul li a {
     background-color: #fff;
 
 }
+
 .deleteBtn:hover {
     padding: 2px;
     border: 1px solid none;
@@ -95,6 +156,8 @@ table {
     text-align: center;
     align-items: center;
 }
-table caption{
-    text-align: center;;
+
+table caption {
+    text-align: center;
+    ;
 }
