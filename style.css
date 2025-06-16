@@ -34,15 +34,6 @@ nav ul li a {
     padding: 20px;
 }
 
-.calculator select {
-    padding: 10px;
-}
-
-.calculator select :focus-visible {
-    outline: blue;
-}
-
-
 .main-calculator,
 .system-calculator {
     flex: 1;
@@ -86,8 +77,8 @@ background: #8D57EC;
 .main-calculator select {
     margin-top: 10px;
     margin-left: 95px;
-    width: 100px;
-    height: 20px;
+    width: 50%;
+    height: 30px;
 }
 .main-calculator .calBtn{
     margin-left: 15px;
@@ -153,6 +144,7 @@ background: #8D57EC;
 }
 
 table {
+    border: none;
     text-align: center;
     align-items: center;
 }
@@ -163,4 +155,16 @@ table caption {
 }
 button img{
     width: 18px;
+}
+.system-calculator  table thead {
+    border: none;
+    background-color: #0004F6;
+    color: #fff;
+
+}
+.system-calculator table tbody, 
+.system-calculator table tfoot{
+    border: 1px solid #0004F6;
+    border-radius: 10px;
+
 }

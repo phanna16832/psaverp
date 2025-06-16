@@ -13,10 +13,11 @@ dateText.style.fontSize = "16px";
 dateText.style.fontWeight = "bold";
 
 function mainCal() {
-  const price = document.querySelector("#price").valueAsNumber;
+  const price = document.querySelector("#price").value;
   // priceShow = parseFloat(price);
   const rate = document.querySelector("#rate");
   const result = document.querySelector("#result");
+  const result0 = document.querySelector("#result0");
 
   result.style.paddingTop = "20px";
   console.log(price);
@@ -27,11 +28,12 @@ function mainCal() {
     result.style.fontSize = "14px";
   } else {
     const cal = (price / rate.value).toFixed(2);
+    result0.innerText = `${price} / ${rate.value} = $${cal}`;
+    console.log(result0);
     result.innerText = `សួស្តីបង សរុបហាងទំនិញទាំងអស់ $${cal} 	  \n***បញ្ជាក់: ចំពោះទំនិញទិញក្នុងហាងតែមួយ ប្រសិនខាងហាងបំបែកកញ្ចប់ទំនិញ ខាងប្អូននឹងរាប់កញ្ចប់ទំនិញគិតថ្លៃដឹកតាមចំនួនកញ្ចប់ទំនិញដូចគ្នា   សំរាប់កញ្ចប់ដែលក្រោម1គីឡូ ខាងប្អូនគិតមួយគីឡូ លើស1គីឡូយក ទំហំនិង ទម្ងង់ប្រៀបធៀបគ្នាមួយណាធំជាងយកមួយនឹងជាគោលគិតថ្លៃដឹកជញ្ចូន។​​ ម្យ៉ាងវិញទៀតខាងប្អូនធានាទៅលើតែឥវ៉ាន់ដែលបាត់បង់    មិនធានាទៅលើឥវ៉ាន់ដែលបែកបាក់នោះទេ   ចំពោះសេវាជួយទិញតាមតេលេក្រាមពុំមានការបង្រួមកញ្ចប់ទំនិញចូលគ្នាទេបង។`;
     result.style.color = "#000";
     result.style.fontSize = "14px";
     result.style.fontWeight = "500px";
-    
   }
 }
 
