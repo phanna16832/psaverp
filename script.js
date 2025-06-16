@@ -47,7 +47,7 @@ const sysCal = () => {
   const systemCal = (nPrice / rateOutput).toFixed(2);
   console.log(systemCal);
   if (systemCal <= 0) {
-    syConvertPrice.innerText = "សូមបញ្ចូលតម្លៃទំនិញ";
+    syConvertPrice.innerText = "0";
     syConvertPrice.style.color = "red";
   } else {
     syConvertPrice.innerText = systemCal;

@@ -71,21 +71,21 @@
               <input type="number" placeholder="Please Enter Price as rmb" id="nPrice" />
             </td>
             <td>
-              <input type="number" placeholder="Please Enter Price in system" id="sysRate" />
+              <input type="number" placeholder="Please Enter Price in system" id="sysPrice" />
             </td>
-            <td><span id="syRate"></span></td>
+            <td><span id="sysRate"></span></td>
             <td><span id="syConvertPrice"></span></td>
             <td><span id="syChangePrice"></span></td>
           </tbody>
           <tfoot>
             <td colspan="2">
-              <button class="calBtn">Calculate</button>
+              <button class="calBtn" onclick="sysCal()">Calculate</button>
             </td>
             <td>
-              <button class="copyBtn">Copy</button>
+              <button class="copyBtn">Copy change Price</button>
             </td>
             <td colspan="2">
-              <button class="deleteBtn">Delete</button>
+              <button class="deleteBtn" onclick="clearSyscal()">clear</button>
             </td>
           </tfoot>
         </table>
