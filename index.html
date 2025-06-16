@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="img-icon/favicon.png" type="image/x-icon">
     <style></style>
   </head>
   <body>
@@ -52,7 +53,10 @@
 
         <span id="result"></span><br />
         <button class="calBtn" onclick="mainCal()">Calcute</button>
-        <button class="copyBtn" onclick="copyText('result')">Copy</button>
+        <button class="copyBtn" onclick="copyText('result')">
+           <img src="img-icon/paste.png" alt="paste">
+          Copy
+        </button>
       </div>
       <div class="system-calculator">
         <caption>
@@ -82,7 +86,10 @@
               <button class="calBtn" onclick="sysCal()">Calculate</button>
             </td>
             <td>
-              <button class="copyBtn">Copy change Price</button>
+              <button class="copyBtn">
+                <img src="img-icon/paste.png" alt="paste">
+                Copy change Price
+              </button>
             </td>
             <td colspan="2">
               <button class="deleteBtn" onclick="clearSyscal()">clear</button>
