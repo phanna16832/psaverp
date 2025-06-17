@@ -24,6 +24,12 @@ nav ul li a {
     color: #fff;
 }
 
+nav ul li a:hover {
+    text-decoration:overline;
+    color:#34c745;
+    font-weight: 600;
+}
+
 
 .calcultator {
     display: flex;
