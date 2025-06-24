@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="img-icon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img-icon/favicon.png" type="image/x-icon" />
     <style></style>
   </head>
   <body>
@@ -48,14 +48,14 @@
           <option value="6.5">6.5</option>
           <option value="6.6">6.6</option>
           <option value="6.7">6.7</option>
-          <option value="6.8">6.8</option>
-        </select><br>
-        
+          <option value="6.8">6.8</option></select
+        ><br />
+
         <span id="result0"></span><br />
         <span id="result"></span><br />
         <button class="calBtn" onclick="mainCal()">Calcute</button>
         <button class="copyBtn" onclick="copyText('result')">
-           <img src="img-icon/paste.png" alt="paste">
+          <img src="img-icon/paste.png" alt="paste" />
           Copy
         </button>
       </div>
@@ -67,16 +67,24 @@
           <thead>
             <th>Price In rmb</th>
             <th>System Price</th>
-            <th >System Default Rate</th>
+            <th>System Default Rate</th>
             <th>Converted Price</th>
             <th>Corrected Price</th>
           </thead>
           <tbody>
             <td>
-              <input type="number" placeholder="Please Enter Price as rmb" id="nPrice" />
+              <input
+                type="number"
+                placeholder="Please Enter Price as rmb"
+                id="nPrice"
+              />
             </td>
             <td>
-              <input type="number" placeholder="Please Enter Price in system" id="sysPrice" />
+              <input
+                type="number"
+                placeholder="Please Enter Price in system"
+                id="sysPrice"
+              />
             </td>
             <td><span id="sysRate"></span></td>
             <td><span id="syConvertPrice"></span></td>
@@ -88,7 +96,7 @@
             </td>
             <td>
               <button class="copyBtn" onclick="copyText('syConvertPrice')">
-                <img src="img-icon/paste.png" alt="paste">
+                <img src="img-icon/paste.png" alt="paste" />
                 Copy convert price
               </button>
             </td>
@@ -104,6 +112,26 @@
         </table>
       </div>
     </main>
+
+    <form id="trackingForm">
+  <input
+    type="text"
+    id="trackingNum"
+    placeholder="Enter comma-separated numbers"
+    style="height: 40px; border-color: blue;"
+  />
+  <input
+    type="text"
+    id="batchCode"
+    placeholder="Enter batch code (e.g. CC...)"
+    style="height: 40px; border-color: blue;"
+  />
+  <button type="submit">Generate</button>
+  <button type="button" id="copyAllBtn">Copy All</button>
+</form>
+
+<div id="outputContainer"></div>
+
 
     <script src="script.js"></script>
   </body>

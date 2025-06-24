@@ -82,6 +82,91 @@ function clearSyscal() {
   });
 }
 
+const form = document.getElementById('trackingForm');
+const outputContainer = document.getElementById('outputContainer');
+const copyAllBtn = document.getElementById('copyAllBtn');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const rawInput = document.getElementById('trackingNum').value;
+  const batchCode = document.getElementById('batchCode').value;
+
+  // Split, trim spaces, remove internal spaces
+  const cleaned = rawInput
+    .split(',')
+    .map(entry => entry.trim().replace(/\s/g, ''))
+    .filter(entry => entry.length > 0); // remove empty
+
+  if (!batchCode) {
+    alert("Please enter batch code.");
+    return;
+  }
+  if (cleaned.length === 0) {
+    alert("Please enter tracking numbers.");
+    return;
+  }
+
+  // Clear output container
+  outputContainer.innerHTML = '';
+
+  // Create header line
+  const header = document.createElement('div');
+  header.textContent = `${batchCode} 集${cleaned.length}件包：`;
+  header.style.fontWeight = 'bold';
+  header.style.marginBottom = '8px';
+  outputContainer.appendChild(header);
+
+  // Create each tracking number line with copy button
+  cleaned.forEach(trackingNum => {
+    const lineDiv = document.createElement('div');
+    lineDiv.style.display = 'flex';
+    lineDiv.style.alignItems = 'center';
+    lineDiv.style.marginBottom = '4px';
+
+    const numSpan = document.createElement('span');
+    numSpan.textContent = trackingNum;
+    numSpan.style.marginRight = '8px';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.textContent = 'copy';
+    copyBtn.style.padding = '2px 6px';
+    copyBtn.style.fontSize = '12px';
+    copyBtn.type = 'button';
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(trackingNum).then(() => {
+        alert(`Copied: ${trackingNum}`);
+      });
+    });
+
+    lineDiv.appendChild(numSpan);
+    lineDiv.appendChild(copyBtn);
+    outputContainer.appendChild(lineDiv);
+  });
+});
+
+// Copy all combined result
+copyAllBtn.addEventListener('click', () => {
+  const header = outputContainer.querySelector('div:first-child');
+  const lines = Array.from(outputContainer.querySelectorAll('div')).slice(1); // skip header
+
+  if (!header || lines.length === 0) {
+    alert('Nothing to copy!');
+    return;
+  }
+
+  const batchLine = header.textContent;
+  const trackingNumbers = lines.map(lineDiv => lineDiv.querySelector('span').textContent);
+
+  const fullText = `${batchLine}\n${trackingNumbers.join('\n')}`;
+
+  navigator.clipboard.writeText(fullText).then(() => {
+    alert('Copied full result!');
+  });
+});
+
+
+
 // JavaScript function
 function copyText(id) {
   const text = document.getElementById(id);
