@@ -114,20 +114,22 @@
     </main>
 
     <form id="trackingForm">
+      <label for="batchCode">请输入集运单号：</label>
+      <input
+        type="text"
+        id="batchCode"
+        placeholder="请输入集运单号 (列如. CC...)"
+        style="height: 40px; border-color: blue; "
+      /> <br><br>
+      <label for="已集包的快递单号">请输入已集包的快递单号：</label>
   <input
     type="text"
     id="trackingNum"
-    placeholder="Enter comma-separated numbers"
+    placeholder="请输入已集包有逗号 `,`的快递单号"
     style="height: 40px; border-color: blue;"
-  />
-  <input
-    type="text"
-    id="batchCode"
-    placeholder="Enter batch code (e.g. CC...)"
-    style="height: 40px; border-color: blue;"
-  />
-  <button type="submit">Generate</button>
-  <button type="button" id="copyAllBtn">Copy All</button>
+  /><br><br>
+  <button type="submit">提示</button>
+  <button type="button" id="copyAllBtn">复制全已集包的单号</button>
 </form>
 
 <div id="outputContainer"></div>

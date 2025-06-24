@@ -129,9 +129,14 @@ form.addEventListener('submit', (event) => {
 
     const copyBtn = document.createElement('button');
     copyBtn.textContent = 'copy';
-    copyBtn.style.padding = '2px 6px';
+     copyBtn.type = 'button';
+    copyBtn.style.color = '#fff';
+    copyBtn.style.backgroundColor = '#007bff';
+    copyBtn.style.border = 'none';
+    copyBtn.style.borderRadius = '4px';
+    copyBtn.style.cursor = 'pointer';
     copyBtn.style.fontSize = '12px';
-    copyBtn.type = 'button';
+    copyBtn.style.padding = '2px 6px';
 
     copyBtn.addEventListener('click', () => {
       navigator.clipboard.writeText(trackingNum).then(() => {
@@ -146,6 +151,13 @@ form.addEventListener('submit', (event) => {
 });
 
 // Copy all combined result
+    copyAllBtn.style.color = '#fff';
+    copyAllBtn.style.backgroundColor = '#007bff';
+    copyAllBtn.style.border = 'none';
+    copyAllBtn.style.borderRadius = '4px';
+    copyAllBtn.style.cursor = 'pointer';
+    copyAllBtn.style.fontSize = '12px';
+    copyAllBtn.style.padding = '2px 6px';
 copyAllBtn.addEventListener('click', () => {
   const header = outputContainer.querySelector('div:first-child');
   const lines = Array.from(outputContainer.querySelectorAll('div')).slice(1); // skip header
