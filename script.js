@@ -85,38 +85,42 @@ function clearSyscal() {
 const form = document.getElementById('trackingForm');
 const outputContainer = document.getElementById('outputContainer');
 const copyAllBtn = document.getElementById('copyAllBtn');
+const textSpan = document.createElement('span');
+textSpan.style.display = 'block';
+textSpan.style.marginTop = '10px';
+document.body.appendChild(textSpan); 
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  textSpan.textContent = ''; // Clear previous message
   const rawInput = document.getElementById('trackingNum').value;
   const batchCode = document.getElementById('batchCode').value;
 
-  // Split, trim spaces, remove internal spaces
   const cleaned = rawInput
     .split(',')
     .map(entry => entry.trim().replace(/\s/g, ''))
-    .filter(entry => entry.length > 0); // remove empty
+    .filter(entry => entry.length > 0);
 
   if (!batchCode) {
-    alert("Please enter batch code.");
+    textSpan.textContent = "Please enter a batch code.";
+    textSpan.style.color = 'red';
     return;
   }
   if (cleaned.length === 0) {
-    alert("Please enter tracking numbers.");
+    textSpan.textContent = "Please enter tracking numbers.";
+    textSpan.style.color = 'red';
     return;
   }
 
-  // Clear output container
+  // Clear previous results
   outputContainer.innerHTML = '';
 
-  // Create header line
   const header = document.createElement('div');
   header.textContent = `${batchCode} 集${cleaned.length}件包：`;
   header.style.fontWeight = 'bold';
   header.style.marginBottom = '8px';
   outputContainer.appendChild(header);
 
-  // Create each tracking number line with copy button
   cleaned.forEach(trackingNum => {
     const lineDiv = document.createElement('div');
     lineDiv.style.display = 'flex';
@@ -129,7 +133,7 @@ form.addEventListener('submit', (event) => {
 
     const copyBtn = document.createElement('button');
     copyBtn.textContent = 'copy';
-     copyBtn.type = 'button';
+    copyBtn.type = 'button';
     copyBtn.style.color = '#fff';
     copyBtn.style.backgroundColor = '#007bff';
     copyBtn.style.border = 'none';
@@ -140,7 +144,8 @@ form.addEventListener('submit', (event) => {
 
     copyBtn.addEventListener('click', () => {
       navigator.clipboard.writeText(trackingNum).then(() => {
-        alert(`Copied: ${trackingNum}`);
+        textSpan.textContent = `Copied: ${trackingNum}`;
+        textSpan.style.color = 'green';
       });
     });
 
@@ -150,20 +155,21 @@ form.addEventListener('submit', (event) => {
   });
 });
 
-// Copy all combined result
-    copyAllBtn.style.color = '#fff';
-    copyAllBtn.style.backgroundColor = '#007bff';
-    copyAllBtn.style.border = 'none';
-    copyAllBtn.style.borderRadius = '4px';
-    copyAllBtn.style.cursor = 'pointer';
-    copyAllBtn.style.fontSize = '12px';
-    copyAllBtn.style.padding = '2px 6px';
+copyAllBtn.style.color = '#fff';
+copyAllBtn.style.backgroundColor = '#007bff';
+copyAllBtn.style.border = 'none';
+copyAllBtn.style.borderRadius = '4px';
+copyAllBtn.style.cursor = 'pointer';
+copyAllBtn.style.fontSize = '12px';
+copyAllBtn.style.padding = '2px 6px';
+
 copyAllBtn.addEventListener('click', () => {
   const header = outputContainer.querySelector('div:first-child');
-  const lines = Array.from(outputContainer.querySelectorAll('div')).slice(1); // skip header
+  const lines = Array.from(outputContainer.querySelectorAll('div')).slice(1);
 
   if (!header || lines.length === 0) {
-    alert('Nothing to copy!');
+    textSpan.textContent = 'Nothing to copy!';
+    textSpan.style.color = 'red';
     return;
   }
 
@@ -173,13 +179,14 @@ copyAllBtn.addEventListener('click', () => {
   const fullText = `${batchLine}\n${trackingNumbers.join('\n')}`;
 
   navigator.clipboard.writeText(fullText).then(() => {
-    alert('Copied full result!');
+    textSpan.textContent = 'Copied full result!';
+    textSpan.style.color = 'green';
   });
 });
 
 
 
-// JavaScript function
+// copy function
 function copyText(id) {
   const text = document.getElementById(id);
   navigator.clipboard
