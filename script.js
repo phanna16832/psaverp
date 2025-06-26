@@ -82,13 +82,11 @@ function clearSyscal() {
   });
 }
 
-const form = document.getElementById('trackingForm');
-const outputContainer = document.getElementById('outputContainer');
-const copyAllBtn = document.getElementById('copyAllBtn');
-const textSpan = document.createElement('span');
-textSpan.style.display = 'block';
-textSpan.style.marginTop = '10px';
-document.body.appendChild(textSpan); 
+  const form = document.getElementById('trackingForm');
+      const outputContainer = document.getElementById('outputContainer');
+      const copyAllBtn = document.getElementById('copyAllBtn');
+      const textSpan = document.getElementById('trackingMessage');
+
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();

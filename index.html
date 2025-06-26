@@ -4,26 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="img-icon/favicon.png" type="image/x-icon" />
-    <style></style>
+    <style>
+      /* Custom styles to preserve your original styling */
+      #result, #result0, #syConvertPrice, #syChangePrice {
+        font-size: 14px;
+      }
+      .language-div span {
+        color: purple;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .copy-success {
+        color: #00F71D;
+        font-size: 14px;
+        visibility: hidden;
+      }
+    </style>
   </head>
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <img src="img-icon/calculator-icon.png" alt="" />
-          <a href="">Home</a>
-        </li>
-        <li><a href="">Save reply facebook</a></li>
-        <li><a href="#calcultator">Calculator</a></li>
-        <li><a href="">About-us</a></li>
-      </ul>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="img-icon/calculator-icon.png" alt="" width="30" height="30" class="d-inline-block align-top me-2">
+          Home
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Save reply facebook</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#calcultator">Calculator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About-us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
-    <header>
-      <div class="language-div">
-        <span></span>
-        <select name="language" id="language">
+
+    <header class="container mb-4">
+      <div class="language-div d-flex justify-content-end align-items-center">
+        <select class="form-select form-select-sm ms-2" style="width: auto;" id="language">
           <option value="en">English</option>
           <option value="cn">Chinese</option>
           <option value="km">Khmer</option>
@@ -31,110 +60,140 @@
       </div>
     </header>
 
-    <main class="calcultator">
-      <div class="main-calculator">
-        <h3>Main calculator</h3>
-        <label for="price">Price in rmb:</label>
-        <input type="number" placeholder="rmb price" id="price" /><br />
-        <label for="rate">rate</label>
-        <select name="rate" id="rate">
-          <option value="6" selected>6</option>
-          <option value="6.1">6.1</option>
-          <option value="6.2">6.2</option>
-          <option value="6.3">6.3</option>
-          <option value="6.4">6.4</option>
-          <option value="6.45">6.45</option>
-          <option value="6.42">6.42</option>
-          <option value="6.5">6.5</option>
-          <option value="6.6">6.6</option>
-          <option value="6.7">6.7</option>
-          <option value="6.8">6.8</option></select
-        ><br />
+    <main class="container" id="calcultator">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h3 class="h5 mb-0">Main calculator</h3>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label for="price" class="form-label">Price in rmb:</label>
+                <input type="number" class="form-control" placeholder="rmb price" id="price">
+              </div>
+              <div class="mb-3">
+                <label for="rate" class="form-label">Rate</label>
+                <select class="form-select" id="rate">
+                  <option value="6" selected>6</option>
+                  <option value="6.1">6.1</option>
+                  <option value="6.2">6.2</option>
+                  <option value="6.3">6.3</option>
+                  <option value="6.4">6.4</option>
+                  <option value="6.45">6.45</option>
+                  <option value="6.42">6.42</option>
+                  <option value="6.5">6.5</option>
+                  <option value="6.6">6.6</option>
+                  <option value="6.7">6.7</option>
+                  <option value="6.8">6.8</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <span id="result0" class="fw-bold text-warning"></span>
+              </div>
+              <div class="mb-3">
+                <span id="result"></span>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-primary" onclick="mainCal()">Calculate</button>
+                <button class="btn btn-secondary" onclick="copyText('result')">
+                  <img src="img-icon/paste.png" alt="paste" width="16" class="me-1">
+                  Copy
+                </button>
+                <span id="copy-success" class="copy-success align-self-center"></span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <span id="result0"></span><br />
-        <span id="result"></span><br />
-        <button class="calBtn" onclick="mainCal()">Calcute</button>
-        <button class="copyBtn" onclick="copyText('result')">
-          <img src="img-icon/paste.png" alt="paste" />
-          Copy
-        </button>
-      </div>
-      <div class="system-calculator">
-        <caption>
-          System Calculator
-        </caption>
-        <table border="1" color="red">
-          <thead>
-            <th>Price In rmb</th>
-            <th>System Price</th>
-            <th>System Default Rate</th>
-            <th>Converted Price</th>
-            <th>Corrected Price</th>
-          </thead>
-          <tbody>
-            <td>
-              <input
-                type="number"
-                placeholder="Please Enter Price as rmb"
-                id="nPrice"
-              />
-            </td>
-            <td>
-              <input
-                type="number"
-                placeholder="Please Enter Price in system"
-                id="sysPrice"
-              />
-            </td>
-            <td><span id="sysRate"></span></td>
-            <td><span id="syConvertPrice"></span></td>
-            <td><span id="syChangePrice"></span></td>
-          </tbody>
-          <tfoot>
-            <td colspan="2">
-              <button class="calBtn" onclick="sysCal()">Calculate</button>
-            </td>
-            <td>
-              <button class="copyBtn" onclick="copyText('syConvertPrice')">
-                <img src="img-icon/paste.png" alt="paste" />
-                Copy convert price
-              </button>
-            </td>
-            <td>
-              <button class="copyBtn" onclick="copyText('syChangePrice')">
-                Copy change Price
-              </button>
-            </td>
-            <td>
-              <button class="deleteBtn" onclick="clearSyscal()">clear</button>
-            </td>
-          </tfoot>
-        </table>
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h3 class="h5 mb-0">System Calculator</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead class="table-primary">
+                    <tr>
+                      <th>Price In rmb</th>
+                      <th>System Price</th>
+                      <th>System Default Rate</th>
+                      <th>Converted Price</th>
+                      <th>Corrected Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="Price in rmb" id="nPrice">
+                      </td>
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="System price" id="sysPrice">
+                      </td>
+                      <td class="align-middle"><span id="sysRate"></span></td>
+                      <td class="align-middle"><span id="syConvertPrice"></span></td>
+                      <td class="align-middle"><span id="syChangePrice"></span></td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="2">
+                        <button class="btn btn-primary btn-sm" onclick="sysCal()">Calculate</button>
+                      </td>
+                      <td>
+                        <button class="btn btn-secondary btn-sm" onclick="copyText('syConvertPrice')">
+                          <img src="img-icon/paste.png" alt="paste" width="14" class="me-1">
+                          Copy convert
+                        </button>
+                      </td>
+                      <td>
+                        <button class="btn btn-secondary btn-sm" onclick="copyText('syChangePrice')">
+                          Copy change
+                        </button>
+                      </td>
+                      <td>
+                        <button class="btn btn-danger btn-sm" onclick="clearSyscal()">Clear</button>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
 
-    <form id="trackingForm">
-      <label for="batchCode">请输入集运单号：</label>
-      <input
-        type="text"
-        id="batchCode"
-        placeholder="请输入集运单号 (列如. CC...)"
-        style="height: 40px; border-color: blue; "
-      /> <br><br>
-      <label for="已集包的快递单号">请输入已集包的快递单号：</label>
-  <input
-    type="text"
-    id="trackingNum"
-    placeholder="请输入已集包有逗号 `,`的快递单号"
-    style="height: 40px; border-color: blue;"
-  /><br><br>
-  <button type="submit">提示</button>
-  <button type="button" id="copyAllBtn">复制全已集包的单号</button>
-</form>
+    <div class="container mb-5">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h3 class="h5 mb-0">Tracking Numbers</h3>
+        </div>
+        <div class="card-body">
+          <form id="trackingForm">
+            <div class="mb-3">
+              <label for="batchCode" class="form-label">请输入集运单号：</label>
+              <input type="text" class="form-control" id="batchCode" placeholder="请输入集运单号 (列如. CC...)">
+            </div>
+            <div class="mb-3">
+              <label for="trackingNum" class="form-label">请输入已集包的快递单号：</label>
+              <input type="text" class="form-control" id="trackingNum" placeholder="请输入已集包有逗号 `,`的快递单号">
+            </div>
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-primary">提示</button>
+              <button type="button" class="btn btn-secondary" id="copyAllBtn">复制全已集包的单号</button>
+            </div>
+          </form>
+          <div id="outputContainer" class="mt-3"></div>
+          <span id="trackingMessage" class="d-block mt-2"></span>
+        </div>
+      </div>
+    </div>
 
-<div id="outputContainer"></div>
-
-
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script src="script.js"></script>
   </body>
 </html>
