@@ -44,7 +44,7 @@ function mainCal() {
   }
 }
 
-const rateOutput = 6.1;
+const rateOutput = 6.0;
 const sysRate = document.querySelector("#sysRate");
 sysRate.innerHTML = rateOutput;
 
