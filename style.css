@@ -141,6 +141,17 @@ form#trackingForm label {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
