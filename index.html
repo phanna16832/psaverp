@@ -22,6 +22,16 @@
         font-size: 14px;
         visibility: hidden;
       }
+      input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
     </style>
   </head>
   <body class="bg-light">
@@ -70,7 +80,7 @@
             <div class="card-body">
               <div class="mb-3">
                 <label for="price" class="form-label">Price in rmb:</label>
-                <input type="number" class="form-control" placeholder="rmb price" id="price">
+                <input type="text" class="form-control no-arrows" placeholder="rmb price" id="price">
               </div>
               <div class="mb-3">
                 <label for="rate" class="form-label">Rate</label>
@@ -129,10 +139,10 @@
                   <tbody>
                     <tr>
                       <td>
-                        <input type="number" class="form-control form-control-sm" placeholder="Price in rmb" id="nPrice">
+                        <input type="text" class="form-control form-control-sm no-arrows" placeholder="Price in rmb" id="nPrice">
                       </td>
                       <td>
-                        <input type="number" class="form-control form-control-sm" placeholder="System price" id="sysPrice">
+                        <input type="text" class="form-control form-control-sm no-arrows" placeholder="System price" id="sysPrice">
                       </td>
                       <td class="align-middle"><span id="sysRate"></span></td>
                       <td class="align-middle"><span id="syConvertPrice"></span></td>
